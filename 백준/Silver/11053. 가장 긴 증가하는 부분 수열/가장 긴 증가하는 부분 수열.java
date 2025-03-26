@@ -17,18 +17,13 @@ public class Main {
         }
 
         int[] dp = new int[count];
-        dp[0] = 1;
+        Arrays.fill(dp, 1);
+
         for (int i = 1; i < count; i++) {
-            int max = 0;
-            for (int j = i-1; j >= 0; j--) {
-                if (array[j] < array[i] && dp[j] > max) {
-                    max = dp[j];
+            for (int j = 0; j < i; j++) {
+                if (array[j] < array[i]) {
+                    dp[i] = Math.max(dp[i], dp[j]+1);
                 }
-            }
-            if (max == 0) {
-                dp[i] = 1;
-            } else {
-                dp[i] = max+1;
             }
         }
 
