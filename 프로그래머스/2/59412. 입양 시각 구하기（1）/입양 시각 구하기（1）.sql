@@ -1,0 +1,6 @@
+-- 코드를 입력하세요
+SELECT DATE_FORMAT(DATETIME, '%H'), count(*)
+from ANIMAL_OUTS
+where DATE_FORMAT(DATETIME, '%H') BETWEEN '09' AND '19'
+group by DATE_FORMAT(DATETIME, '%H')
+order by DATE_FORMAT(DATETIME, '%H')
